@@ -15,9 +15,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author Kim Keumtae
- */
+
 @Service
 @Transactional
 public class CommentService {

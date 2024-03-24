@@ -10,9 +10,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
 
-/**
- * @author Kim Keumtae
- */
+
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonAutoDetect

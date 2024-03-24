@@ -24,9 +24,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * @author Kim Keumtae
- */
+
 @Service
 @Transactional
 public class UserService {

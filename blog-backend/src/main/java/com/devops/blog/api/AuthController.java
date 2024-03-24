@@ -28,9 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Collections;
 
-/**
- * @author Kim Keumtae
- */
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {

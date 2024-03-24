@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-/**
- * @author Kim Keumtae
- */
+
 @RestController
 @CrossOrigin
 @RequestMapping("/api")

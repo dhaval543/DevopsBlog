@@ -9,9 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-/**
- * @author Kim Keumtae
- */
+
 @Entity
 @Table(name = "comment")
 @Getter

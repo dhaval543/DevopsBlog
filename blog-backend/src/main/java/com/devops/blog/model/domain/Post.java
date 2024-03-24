@@ -14,9 +14,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-/**
- * @author Kim Keumtae
- */
+
 @Entity
 @Table(name = "post")
 @Getter

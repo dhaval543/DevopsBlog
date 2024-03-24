@@ -6,9 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Optional;
 
-/**
- * @author Kim Keumtae
- */
+
 public class SecurityUtil {
 
     public static Optional<CustomUserDetails> getCurrentUserLogin() {

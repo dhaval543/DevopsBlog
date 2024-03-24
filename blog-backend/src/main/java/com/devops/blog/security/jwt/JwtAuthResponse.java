@@ -2,9 +2,7 @@ package com.devops.blog.security.jwt;
 
 import com.devops.blog.model.BaseModel;
 
-/**
- * @author Kim Keumtae
- */
+
 public class JwtAuthResponse extends BaseModel {
 
     private static final long serialVersionUID = 1250166508152483573L;
