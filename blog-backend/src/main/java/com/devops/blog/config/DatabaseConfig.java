@@ -7,9 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Bean;
 
-/**
- * @author Kim Keumtae
- */
+
 public class DatabaseConfig {
 
     private final Logger log = LoggerFactory.getLogger(getClass());

@@ -30,9 +30,9 @@ spring:
       enabled: true
   datasource:
     # type:
-    url: jdbc:postgresql://localhost:5432/myblog
-    username: postgres
-    password: test123
+    url: jdbc:postgresql://askmedb.czqqqeequpwx.us-east-1.rds.amazonaws.com:5432/askmeanything
+    username: master
+    password: Password
     driver-class-name: org.postgresql.Driver
     initialize: true
   postgres:

@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author Kim Keumtae
- */
+
 public class SimpleCorsFilter implements Filter {
 
     @Override

@@ -2,9 +2,7 @@ package com.devops.blog.common.Exception;
 
 import org.springframework.http.HttpStatus;
 
-/**
- * @author Kim Keumtae
- */
+
 public class ApiException extends RuntimeException {
 
     private static final long serialVersionUID = -4642753456084299295L;

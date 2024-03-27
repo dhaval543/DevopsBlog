@@ -16,9 +16,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-/**
- * @author Kim Keumtae
- */
+
 @Service
 @Transactional
 public class PostService {

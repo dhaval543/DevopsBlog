@@ -19,9 +19,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.*;
 
-/**
- * @author Kim Keumtae
- */
+
 @Entity
 @Table(name = "user_tbl")
 @Getter

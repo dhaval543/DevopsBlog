@@ -1,8 +1,6 @@
 package com.devops.blog.common.util;
 
-/**
- * @author Kim Keumtae
- */
+
 public class AuthoritiesConstants {
 
     public static final String USER = "ROLE_USER";

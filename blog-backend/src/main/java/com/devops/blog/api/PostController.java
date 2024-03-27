@@ -19,9 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-/**
- * @author Kim Keumtae
- */
+
 @RestController
 @RequestMapping("/api")
 public class PostController {

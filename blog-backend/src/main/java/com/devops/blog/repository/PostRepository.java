@@ -9,9 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-/**
- * @author Kim Keumtae
- */
+
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
     Page<Post> findByUserOrderByCreatedDateDesc(User user, Pageable pageable);

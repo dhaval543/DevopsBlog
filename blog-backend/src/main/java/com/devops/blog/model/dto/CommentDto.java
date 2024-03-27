@@ -5,9 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-/**
- * @author Kim Keumtae
- */
+
 @Data
 public class CommentDto {
 

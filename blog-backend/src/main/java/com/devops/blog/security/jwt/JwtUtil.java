@@ -17,9 +17,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
 
-/**
- * @author Kim Keumtae
- */
+
 @Service
 public class JwtUtil {
     private final Logger log = LoggerFactory.getLogger(getClass());

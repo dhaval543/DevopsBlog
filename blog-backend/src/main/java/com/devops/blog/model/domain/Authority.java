@@ -9,9 +9,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-/**
- * @author Kim Keumtae
- */
+
 @Entity
 @Table(name = "authority")
 public class Authority extends BaseModel {

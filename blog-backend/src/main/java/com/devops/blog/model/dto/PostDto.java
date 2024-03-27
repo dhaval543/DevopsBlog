@@ -5,9 +5,7 @@ import com.devops.blog.model.domain.Post;
 
 import java.time.LocalDateTime;
 
-/**
- * @author Kim Keumtae
- */
+
 @Data
 public class PostDto {
 
