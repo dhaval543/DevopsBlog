@@ -6,7 +6,10 @@ import * as authActions from "store/modules/auth";
 
 class OAuth2RedirectHandler extends Component {
     getUrlParameter(name) {
-        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+		// eslint-disable-next-line
+        //name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+		name = name.replace(/\[/, '\\[').replace(/\]/, '\\]');
+
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
 
         var results = regex.exec(this.props.location.search);

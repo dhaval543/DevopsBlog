@@ -1,56 +1,14 @@
-# Stage 1: Build React frontend
-FROM node:14 AS frontend-builder
-
-# Set working directory
-WORKDIR /app/blog-frontend
-
-# Copy package.json and package-lock.json
-COPY blog-frontend/package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the frontend code
-COPY blog-frontend/ .
-
-# Build the frontend
-RUN npm run build
-
-# Stage 2: Build Java Spring Boot backend
-FROM adoptopenjdk/openjdk17:alpine AS backend-builder
-
-# Set working directory
-WORKDIR /app/blog-backend
-
-# Copy Maven configuration files
-COPY blog-backend/pom.xml .
-COPY blog-backend/mvn* ./
-
-# Download dependencies
-RUN ./mvnw dependency:go-offline
-
-# Copy the rest of the backend source code
-COPY blog-backend/src ./src
-
-# Build the backend
-RUN ./mvnw package -DskipTests
-
-# Stage 3: Create production image
-FROM adoptopenjdk/openjdk17:alpine
-
-# Set working directory
+# Use the official OpenJDK 17 Alpine image as the base image
+#FROM adoptopenjdk/openjdk17:alpine-slim
+FROM openjdk:17-jdk-slim
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy built React frontend from stage 1
-COPY --from=frontend-builder /app/blog-frontend/build ./src/main/resources/static
+# Copy the packaged JAR file into the container at /app
+COPY target/blog-0.0.1-SNAPSHOT.jar /app/blog-0.0.1-SNAPSHOT.jar
 
-# Copy built Java Spring Boot backend from stage 2
-COPY --from=backend-builder /app/blog-backend/target/*.jar ./app.jar
-
-# Expose backend port
+# Expose the port that your Spring Boot application runs on
 EXPOSE 8080
 
-EXPOSE 3000
-
-# Command to run the application
-CMD ["java", "-jar", "app.jar"]
+# Specify the command to run your Spring Boot application when the container starts
+CMD ["java", "-jar", "blog-0.0.1-SNAPSHOT.jar"]

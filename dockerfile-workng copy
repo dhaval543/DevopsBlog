@@ -1,0 +1,61 @@
+# Stage 1: Build the backend
+FROM maven:latest AS backend-builder
+
+# Set the working directory for the backend
+WORKDIR /app/backend
+
+# Copy the backend Maven project files
+COPY blog-backend/pom.xml .
+COPY blog-backend/mvnw .
+COPY blog-backend/.mvn .mvn
+
+# Ensure Maven Wrapper is executable
+RUN chmod +x mvnw
+
+# Download the backend dependencies
+RUN mvn dependency:go-offline
+
+# Copy the backend source code
+COPY blog-backend/src ./src
+
+# Build the backend
+RUN mvn clean package -DskipTests
+
+
+# Stage 2: Build the frontend
+FROM node:14 AS frontend-builder
+
+# Set the working directory for the frontend
+WORKDIR /app/frontend
+
+# Copy the frontend project files
+COPY blog-frontend/package*.json ./
+COPY blog-frontend/yarn.lock ./
+
+# Install the frontend dependencies using npm
+RUN npm install
+
+# Copy the frontend source code
+COPY blog-frontend/ ./
+
+# Build the frontend
+RUN npm run build
+
+
+# Stage 3: Combine backend and frontend
+FROM openjdk:17-jdk-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the backend JAR file
+COPY --from=backend-builder /app/backend/target/*.jar app.jar
+
+# Copy the frontend build files
+COPY --from=frontend-builder /app/frontend/build ./frontend/build
+
+# Expose ports for both backend and frontend
+EXPOSE 8080 3000
+
+# Start the Spring Boot application and React frontend concurrently
+CMD ["java", "-jar", "app.jar"] && cd frontend/build && npx serve -s
